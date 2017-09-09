@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>vmi bjj roster</title>
+    </head>
+    <body>
+        <p>
+        {% for cadet in cadets %}
+            <p>
+            {{ cadet.last_name }}  {{ cadet.first_name }}  {{ cadet.attendance }}
+            </p>
+        {% endfor %}
+        </p>
+    <body>
+</html>
