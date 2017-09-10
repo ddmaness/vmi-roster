@@ -11,7 +11,7 @@ def index():
     if request.method ==  "POST":
         first = request.form.get("first")
         last = request.form.get("last")
-        c.execute("INSERT INTO cadets (first_name, last_name, attendance) VALUES (?, ?, 1)", (first, last))
+        c.execute("INSERT INTO cadets (first_name, last_name, attendance_current_rank, attendance_total) VALUES (?, ?, 1, 1)", (first, last))
         conn.commit()
         return redirect("/")
     else:
