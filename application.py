@@ -6,7 +6,14 @@ c = conn.cursor()
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 def index():
-    cadets = c.execute("SELECT * FROM cadets")
-    return render_template("index.html", cadets = cadets)
+    if request.method ==  "POST":
+        first = request.form.get("first")
+        last = request.form.get("last")
+        c.execute("INSERT INTO cadets (first_name, last_name, attendance) VALUES (?, ?, 1)", (first, last))
+        cadets = c.execute("SELECT * FROM cadets")
+        return render_template("index.html", cadets = cadets)
+    else:
+        cadets = c.execute("SELECT * FROM cadets")
+        return render_template("index.html", cadets = cadets)
