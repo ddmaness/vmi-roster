@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Cadet
+{% endblock %}
+
+{% block main %}
+
+    <form action="{{ url_for('index') }}" method="post">
+        <input type="text" name="first" placeholder="first name"/>
+        <input type="text" name="last" placeholder="last name"/>
+        <button type="submit">add new participant</button> 
+    </form>
+    
+    <p>
+    {% for cadet in cadets %}
+        <p>
+        {{ cadet.last_name }}  {{ cadet.first_name }}  {{ cadet.attendance_current_rank }} {{ cadet.time }}
+        </p>
+    {% endfor %}
+    </p>
+
+{% endblock %}

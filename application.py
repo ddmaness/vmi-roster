@@ -6,8 +6,12 @@ c = conn.cursor()
 
 app = Flask(__name__)
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/", methods=["GET","POST"])
 def index():
+    return render_template("index.html")
+
+@app.route("/add", methods=["GET", "POST"])
+def add():
     if request.method ==  "POST":
         first = request.form.get("first")
         last = request.form.get("last")
@@ -20,13 +24,13 @@ def index():
             if exists is None:
                 c.execute("INSERT INTO cadets (first_name, last_name, attendance_current_rank, attendance_total) VALUES (?, ?, 1, 1)", (first, last))
                 conn.commit()
-                return redirect("/")
+                return redirect("/add")
             else:
                 msg = "this name already exists in the database"
                 return error(msg)
     else:
         cadets = c.execute("SELECT * FROM cadets")
-        return render_template("index.html", cadets = cadets)
+        return render_template("add.html", cadets = cadets)
 
 def error(msg):
     return render_template("error.html", msg = msg)
