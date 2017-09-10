@@ -12,8 +12,8 @@ def index():
         first = request.form.get("first")
         last = request.form.get("last")
         c.execute("INSERT INTO cadets (first_name, last_name, attendance) VALUES (?, ?, 1)", (first, last))
-        cadets = c.execute("SELECT * FROM cadets")
-        return render_template("index.html", cadets = cadets)
+        conn.commit()
+        return redirect("/")
     else:
         cadets = c.execute("SELECT * FROM cadets")
         return render_template("index.html", cadets = cadets)
