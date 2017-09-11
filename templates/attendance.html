@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Cadet Check-in
+{% endblock %}
+
+{% block main %}
+
+<form action="check_in" method="post">
+    <input name="name_lookup" placeholder="search for cadet" type="text"/>
+    <button type="submit">Search</button>
+</form>
+
+{% endblock %}

@@ -94,4 +94,10 @@ def view():
     cadets = c.execute("SELECT * FROM cadets")
     return render_template("view.html", cadets = cadets)
 
+@app.route("/check_in/<first>,<last>")
+def check_in(first, last):
+    c.execute("UPDATE cadets SET attendance_current_rank = attendance_current_rank + 1, attendance_total = attendance_total + 1 WHERE first_name=? AND last_name=?", (first, last))
+    conn.commit()
+    return redirect("/add")
+
 app.secret_key = "q3n$)1hsgg8@8vhwa75up9g0qdpa3f$wc1ynh$pf(aqxk^h^6s"
