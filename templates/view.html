@@ -9,7 +9,7 @@
     <p>
     {% for cadet in cadets %}
         <p>
-        {{ cadet.last_name }},  {{ cadet.first_name }} practice sessions at rank: {{ cadet.attendance_current_rank }}
+        {{ cadet.first_name.capitalize() }}  {{ cadet.last_name.capitalize() }} practice sessions at rank: {{ cadet.attendance_current_rank }}
         </p>
     {% endfor %}
     </p>

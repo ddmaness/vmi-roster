@@ -91,7 +91,7 @@ def error(msg):
 
 @app.route("/view", methods=["GET"])
 def view():
-    cadets = c.execute("SELECT * FROM cadets")
+    cadets = c.execute("SELECT * FROM cadets ORDER BY last_name DESC")
     return render_template("view.html", cadets = cadets)
 
 @app.route("/check_in/<first>,<last>")
