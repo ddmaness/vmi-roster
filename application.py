@@ -67,8 +67,8 @@ def login():
 @login_required
 def add():
     if request.method ==  "POST":
-        first = request.form.get("first")
-        last = request.form.get("last")
+        first = request.form.get("first").upper()
+        last = request.form.get("last").upper()
         if first == "" or last == "":
             msg = "please provide your first and last name"
             return error(msg)

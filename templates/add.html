@@ -15,7 +15,7 @@
     <p>
     {% for cadet in cadets %}
         <p>
-        <a href="/check_in/{{cadet.first_name}},{{cadet.last_name}}"/>{{ cadet.last_name }}</a>  {{ cadet.first_name }}  {{ cadet.attendance_current_rank }} {{ cadet.time }}
+        <a href="/check_in/{{cadet.first_name}},{{cadet.last_name}}"/>{{ cadet.last_name.capitalize() }}</a>  {{ cadet.first_name.capitalize() }}  {{ cadet.attendance_current_rank }} {{ cadet.time }}
         </p>
     {% endfor %}
     </p>
