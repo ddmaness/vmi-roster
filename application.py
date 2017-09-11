@@ -83,7 +83,7 @@ def add():
                 msg = "this name already exists in the database"
                 return error(msg)
     else:
-        cadets = c.execute("SELECT * FROM cadets")
+        cadets = c.execute("SELECT * FROM cadets ORDER BY last_name DESC")
         return render_template("add.html", cadets = cadets)
 
 def error(msg):
