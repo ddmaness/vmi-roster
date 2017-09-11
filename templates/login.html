@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block main %}
+    <form action="{{ url_for('login')}}" method="post">
+        <input autocomplete="off" name="username" placeholder="Username" type="text">
+        <input name="password" placeholder="Password" type="password">
+        <button type="submit">Login</button>
+    </form>
+{% endblock %}
