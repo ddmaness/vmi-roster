@@ -10,6 +10,7 @@
                 {% if session.user_id %}
                 <li><a href="{{ url_for('add') }}">Take Attendance</a>
                 <li><a href="{{ url_for('logout') }}"> Logout </a>
+                <li><a href="{{ url_for('view') }}"> View Roster </a>
                 {% else %}
                 <li><a href="{{ url_for('view') }}"> View Roster </a>
                 <li><a href="{{ url_for('login') }}">Login</a>
