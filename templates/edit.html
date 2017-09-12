@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Edit Roster
+{% endblock %}
+
+{% block main %}
+
+    <p>
+    {% for cadet in cadets %}
+        <p>
+        {{ cadet.last_name.capitalize() }}</a>  {{ cadet.first_name.capitalize() }}  {{ cadet.attendance_current_rank }} {{ cadet.time }}
+        <a href="/adjust_rank/{{cadet.first_name}},{{cadet.last_name}}"/><button>Adjust Rank</button></a>
+        <a href="/delete/{{cadet.first_name}},{{cadet.last_name}}"/><button>Delete Cadet</button></a>
+        </p>
+    {% endfor %}
+    </p>
+
+{% endblock %}

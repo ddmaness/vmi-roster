@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Delete Cadet From Roster
+{% endblock %}
+
+{% block main %}
+
+    <p>
+    Are you sure you would like to delete {{ first }} {{ last }} from the roster? This cannot be reversed?
+    </p>
+    <form action="url_for('delete',first=None,last=None)" method="post">
+        <input type="hidden" name=first value="{{ first }}">
+        <input type="hidden" name=last value="{{ last }}">        
+        <button type="submit">Yes, I would like to delete this cadet from the roster</button>
+    </form>
+        <a href="/edit"><button>Return to roster</button></a>
+
+{% endblock %}
