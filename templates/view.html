@@ -7,8 +7,28 @@
 {% block main %}
 
     {% for cadet in cadets %}
-        <div class="cadet_info">
-        {{ cadet.first_name.capitalize() }}  {{ cadet.last_name.capitalize() }} sessions as a {{cadet.rank}} belt: {{ cadet.attendance_current_rank }}
+        <div class="card">
+            <div class="cadet_info view" id="{{ cadet.rank }}">
+                <span class="important">{{ cadet.last_name.capitalize() }},  {{ cadet.first_name.capitalize() }}</span>
+                <div class="stripes_bar">
+                    <div class="stripe num{% if cadet.attendance_current_rank > 99 %}4{% else %}{{ ((cadet.attendance_current_rank-(cadet.attendance_current_rank%25))/25)|int }}{% endif %} first_stripe">
+                    </div>
+                    <div class="stripe num{% if cadet.attendance_current_rank > 99 %}4{% else %}{{ ((cadet.attendance_current_rank-(cadet.attendance_current_rank%25))/25)|int }}{% endif %} second_stripe">
+                    </div>
+                    <div class="stripe num{% if cadet.attendance_current_rank > 99 %}4{% else %}{{ ((cadet.attendance_current_rank-(cadet.attendance_current_rank%25))/25)|int }}{% endif %} third_stripe">
+                    </div>
+                    <div class="stripe num{% if cadet.attendance_current_rank > 99 %}4{% else %}{{ ((cadet.attendance_current_rank-(cadet.attendance_current_rank%25))/25)|int }}{% endif %} fourth_stripe">
+                    </div>
+                </div>
+            </div>
+            <div class="progress_bar">
+                <div class="progress_fill" style="width: {{ ((cadet.attendance_current_rank % 25)/25)*100|round(1) }}%">
+                    {{ cadet.attendance_current_rank % 25 }}/25
+                </div>
+                <div class="ready_to_test stripe{% if cadet.attendance_current_rank > 99 %}4{% else %}{{ ((cadet.attendance_current_rank-(cadet.attendance_current_rank%25))/25)|int }}{% endif %}">
+                    preparing for test
+                </div>
+            </div>
         </div>
     {% endfor %}
 
