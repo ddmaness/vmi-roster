@@ -5,15 +5,15 @@
 {% endblock %}
 
 {% block main %}
-
-    <p>
-    Remove {{ first.capitalize() }} {{ last.capitalize() }}?
-    </p>
-    <form action="url_for('delete',first=None,last=None)" method="post">
-        <input type="hidden" name=first value="{{ first }}">
-        <input type="hidden" name=last value="{{ last }}">        
-        <button type="submit">Yes</button>
-    </form>
-        <a href="/edit"><button>Return to roster</button></a>
-
+    <div class="verify">
+        <p class="important">
+        Remove {{ first.capitalize() }} {{ last.capitalize() }}?
+        </p>
+        <form style="display:inline;"action="url_for('delete',first=None,last=None)" method="post">
+            <input type="hidden" name=first value="{{ first }}">
+            <input type="hidden" name=last value="{{ last }}">        
+            <button style="width:48px;" type="submit">Yes</button>
+        </form>
+            <a href="/edit"><button>Return to roster</button></a>
+    </div>
 {% endblock %}

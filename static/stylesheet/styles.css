@@ -24,15 +24,34 @@ button{
     color: black; 
     height:40px;
     min-width:40px;
-    margin:8px;
+    margin:0 16px 0 8px;
+}
+
+select{
+    font-size:16px;
+    font-family:"Roboto", "Noto Sans", sans-serif;
+    border:none;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .8), 0 4px 6px 0 rgba(0, 0, 0, .6); /*taken from w3 page on shadows */
+    background-color:#FAD312;
+    color: black; 
+    height:40px;
+    min-width:80px;
+    margin:0 16px 0 8px;
+    text-align: center;
 }
 
 div{  
 }
+
 ul {/* taken from w3 schools example on navbars */
     list-style-type: none;
     margin: 0;
     padding: 0;
+}
+
+.adjust_rank{
+    margin-right:0;
+    margin-left:8px;
 }
 
 li.menu_left {
@@ -66,27 +85,35 @@ a {
     border-bottom:1px solid black;
 }
 .position_holder{
-    height:80px;
+    height:64px;
 }
 
 a.nav_item, a.log {
     height:40px; 
     display:block;
-    padding-top:8px;
+    padding-top:12px;
     margin: 4px 24px 4px 0;
 }
 
-.important{
-    font-size:24px;
-    font-weight: bold;
+.vmi{
+    font-family: "Playfair Display SC", serif;
+    font-size:64px;
+    font-weight:bold;
+    text-align:center;
+    margin-top:32px;
+}
+
+.club{
+    font-size: 48px;
+    text-align: center;
 }
 
 .cadet_info{
     border:1px solid black;
     position:relative;
     margin-top:24px;
-    padding-top:8px;
-    min-height:48px;
+    padding-top:12px;
+    height:52px;
 }
 
 .card{
@@ -96,8 +123,15 @@ a.nav_item, a.log {
 }
 
 .cadet_info.view{
+    height:48px;
     padding-left:16px;
     padding-top:16px;
+}
+
+.cadet_info.card{
+    margin-top:16px;
+    padding:0;
+    padding-bottom:4px;  
 }
 
 .stripes_bar{
@@ -151,7 +185,6 @@ a.nav_item, a.log {
 
 .checkin{
     font-size:24px;
-    padding-bottom:3px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .8), 0 8px 12px 0 rgba(0, 0, 0, .6); /*taken from w3 page on shadows */
     font-weight:bold;
     border:none;
@@ -172,7 +205,8 @@ a.nav_item, a.log {
     font-weight: bold;
     width:100%;
     visibility:hidden;
-    height:24px;
+    padding-top:4px;
+    height:20px;
 }
 
 .ready_to_test.stripe4{
@@ -184,7 +218,8 @@ a.nav_item, a.log {
     font-weight:bold;
     text-align:center;
     background-color:#FAD312;
-    height:24px;
+    padding-top:4px;
+    height:20px;
 }
 
 #blue{
@@ -199,4 +234,15 @@ a.nav_item, a.log {
 #brown{
     background-color:#A66236;
     color:white;
+}
+
+.verify{
+    max-width:1200px;
+    margin:auto;
+    text-align:center;
+}
+
+.important{
+    font-size:24px;
+    font-weight: bold;
 }
