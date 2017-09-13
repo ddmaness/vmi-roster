@@ -1,4 +1,6 @@
 body{
+    margin:0;
+    padding:0;
     font-family: "Roboto", "Noto Sans", sans-serif;
     font-size: 16px;
     box-sizing: border-box;
@@ -25,8 +27,53 @@ button{
     margin:8px;
 }
 
-div{
-    
+div{  
+}
+ul {/* taken from w3 schools example on navbars */
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li.menu_left {
+    float:left;
+}
+
+li.menu_right {
+    float:right;
+}
+li.menu_left.far_left{
+    margin-left: 40px;
+}
+
+li.menu_right.far_right{
+    margin-right: 24px;
+}
+
+a {
+    color:white;
+    text-decoration: none;
+}
+
+.navbar{
+    top:0;
+    position:fixed;
+    z-index: 1;
+    width:100%;
+    background-color: #AF102C;
+    height:48px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .5), 0 8px 12px 0 rgba(0, 0, 0, .3);
+    border-bottom:1px solid black;
+}
+.position_holder{
+    height:80px;
+}
+
+a.nav_item, a.log {
+    height:40px; 
+    display:block;
+    padding-top:8px;
+    margin: 4px 24px 4px 0;
 }
 
 .important{
@@ -43,6 +90,8 @@ div{
 }
 
 .card{
+    max-width: 1200px;
+    margin:auto;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .8), 0 4px 6px 0 rgba(0, 0, 0, .6); /*taken from w3 page on shadows */
 }
 
