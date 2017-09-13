@@ -6,18 +6,40 @@
 
 {% block main %}
 
-    <form action="{{ url_for('add') }}" method="post">
-        <input type="text" name="first" placeholder="first name"/>
-        <input type="text" name="last" placeholder="last name"/>
-        <button type="submit">add new participant</button> 
-    </form>
-    
+    <div class="cadet_info card">
+        <form action="{{ url_for('add') }}" method="post">
+            <input type="text" name="first" placeholder="first name"/>
+            <input type="text" name="last" placeholder="last name"/>
+            <button type="submit">add cadet</button> 
+        </form>
+    </div>
+
     <p>
     {% for cadet in cadets %}
-        <p>
-        <a href="/check_in/{{cadet.first_name}},{{cadet.last_name}}"/><button>check in</button></a>
-        {{ cadet.last_name.capitalize() }}  {{ cadet.first_name.capitalize() }}  {{ cadet.attendance_current_rank }} {{ cadet.time }}
-        </p>
+        <div class="card">
+            <div class="cadet_info" id="{{ cadet.rank }}">
+                <a href="/check_in/{{cadet.first_name}},{{cadet.last_name}}"/><button class="checkin">+</button></a>
+                <span class="important">{{ cadet.last_name.capitalize() }},  {{ cadet.first_name.capitalize() }}</span>
+                <div class="stripes_bar">
+                    <div class="stripe num{% if cadet.attendance_current_rank > 99 %}4{% else %}{{ ((cadet.attendance_current_rank-(cadet.attendance_current_rank%25))/25)|int }}{% endif %} first_stripe">
+                    </div>
+                    <div class="stripe num{% if cadet.attendance_current_rank > 99 %}4{% else %}{{ ((cadet.attendance_current_rank-(cadet.attendance_current_rank%25))/25)|int }}{% endif %} second_stripe">
+                    </div>
+                    <div class="stripe num{% if cadet.attendance_current_rank > 99 %}4{% else %}{{ ((cadet.attendance_current_rank-(cadet.attendance_current_rank%25))/25)|int }}{% endif %} third_stripe">
+                    </div>
+                    <div class="stripe num{% if cadet.attendance_current_rank > 99 %}4{% else %}{{ ((cadet.attendance_current_rank-(cadet.attendance_current_rank%25))/25)|int }}{% endif %} fourth_stripe">
+                    </div>
+                </div>
+            </div>
+            <div class="progress_bar">
+                <div class="progress_fill" style="width: {{ ((cadet.attendance_current_rank % 25)/25)*100|round(1) }}%">
+                    {{ cadet.attendance_current_rank % 25 }}/25
+                </div>
+                <div class="ready_to_test stripe{% if cadet.attendance_current_rank > 99 %}4{% else %}{{ ((cadet.attendance_current_rank-(cadet.attendance_current_rank%25))/25)|int }}{% endif %}">
+                    Begin preparing for your test
+                </div>
+            </div>
+        </div>
     {% endfor %}
     </p>
 

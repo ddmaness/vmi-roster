@@ -93,7 +93,7 @@ def add():
                 msg = "this name already exists in the database"
                 return error(msg)
     else:
-        cadets = c.execute("SELECT * FROM cadets ORDER BY last_name DESC")
+        cadets = c.execute("SELECT * FROM cadets ORDER BY last_name ASC")
         return render_template("add.html", cadets = cadets)
 
 
@@ -125,21 +125,21 @@ def edit():
     if request.method == "POST":
         return error("wow you got here by post somehow")
     else:
-        cadets = c.execute("SELECT * FROM cadets ORDER BY last_name DESC")
+        cadets = c.execute("SELECT * FROM cadets ORDER BY last_name ASC")
         return render_template("edit.html", cadets = cadets)
 
 
 
 @app.route("/view", methods=["GET"])
 def view():
-    cadets = c.execute("SELECT * FROM cadets ORDER BY last_name DESC")
+    cadets = c.execute("SELECT * FROM cadets ORDER BY last_name ASC")
     return render_template("view.html", cadets = cadets)
 
 
 
 @app.route("/check_in/<first>,<last>")
 def check_in(first, last):
-    c.execute("UPDATE cadets SET attendance_current_rank = attendance_current_rank + 1, attendance_total = attendance_total + 1 WHERE first_name=? AND last_name=? and time != date('now')", (first, last))
+    c.execute("UPDATE cadets SET attendance_current_rank = attendance_current_rank + 1, attendance_total = attendance_total + 1 WHERE first_name=? AND last_name=?", (first, last)) # and time != date('now')", (first, last))
     c.execute("UPDATE cadets SET time = date('now') WHERE first_name=? AND last_name=?", (first, last))
     conn.commit()
     return redirect("/add")

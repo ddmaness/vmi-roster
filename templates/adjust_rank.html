@@ -5,10 +5,7 @@
 {% endblock %}
 
 {% block main %}
-    <p>Set rank here and submit changes.</p>
-    <p>NOTE: If a cadet is being promoted to the next color belt rank, remember to set their number of stripes to zero.
-    The cadet's number of stripes should increment automatically every 25th time they check-in on the attendance page
-    after that.</p>
+    <p>To promote a cadet to the next color belt, choose the color of the promotion and set their number of stripes to zero.</p>
     <p>{{ first }} {{ last }} {{ belt }} {{ stripes }}</p>
     <select name="belt" form="set_rank">
         <option value="{{ belt }}" selected hidden>{{ belt }}</option>
@@ -28,7 +25,7 @@
     <form action="url_for('adjust',first=None,last=None)" method="post" id="set_rank" style="display: inline;">
         <input type="hidden" name=first value="{{ first }}">
         <input type="hidden" name=last value="{{ last }}">
-        <button type="submit">Confirm changes to rank</button>
+        <button type="submit">Confirm changes</button>
     </form>
     <a href="/edit"><button>Return to roster</button></a>
     

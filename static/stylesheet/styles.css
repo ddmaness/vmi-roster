@@ -1,0 +1,148 @@
+body{
+    font-family: "Roboto", "Noto Sans", sans-serif;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+input{
+    font-family: "Roboto", "Noto Sans", sans-serif;
+    font-size: 16px;
+    padding-left:8px;
+    font-family: "Roboto", "Noto Sans", sans-serif;
+    height: 40px;
+    min-width: 240px;
+    margin: 8px;
+}
+button{
+    font-size:16px;
+    font-family:"Roboto", "Noto Sans", sans-serif;
+    border:none;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .8), 0 4px 6px 0 rgba(0, 0, 0, .6); /*taken from w3 page on shadows */
+    background-color:#FAD312;
+    color: black; 
+    height:40px;
+    min-width:40px;
+    margin:8px;
+}
+
+div{
+    
+}
+
+.important{
+    font-size:24px;
+    font-weight: bold;
+}
+
+.cadet_info{
+    border:1px solid black;
+    position:relative;
+    margin-top:24px;
+    padding-top:8px;
+    max-height:64px;
+}
+
+.card{
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .8), 0 4px 6px 0 rgba(0, 0, 0, .6); /*taken from w3 page on shadows */
+}
+
+.stripes_bar{
+    position:absolute;
+    top:0;
+    right:10%;
+    background-color: black;
+    height:65px;
+    width: 20%;
+}
+
+.stripe{    
+    position:absolute;
+    border:none;
+    background-color: white;
+    width:8%;
+    height:64px;
+    visibility:hidden;
+}
+
+.stripe.first_stripe{
+    left:20%;
+}
+.stripe.num1.first_stripe, .stripe.num2.first_stripe, .stripe.num3.first_stripe, .stripe.num4.first_stripe{
+    visibility:visible;
+}
+
+.stripe.second_stripe{
+    left:40%;
+}
+
+.stripe.num2.second_stripe, .stripe.num3.second_stripe, .stripe.num4.second_stripe{
+    visibility:visible;
+}
+
+.stripe.third_stripe{
+    left:60%;
+}
+
+.stripe.num3.third_stripe, .stripe.num4.third_stripe{
+    visibility: visible;
+}
+
+.stripe.fourth_stripe{
+    left:80%;
+}
+
+.stripe.num4.fourth_stripe{
+    visibility: visible;
+}
+
+.checkin{
+    font-size:24px;
+    padding-bottom:3px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .8), 0 8px 12px 0 rgba(0, 0, 0, .6); /*taken from w3 page on shadows */
+    font-weight:bold;
+    border:none;
+    border-radius:50%;
+}
+
+.progress_bar{
+    position: relative;
+    height: 24px;
+    border:solid black;
+    border-width:0 1px 1px 1px;
+}
+
+.ready_to_test{
+    position:absolute;
+    background-color: #FAD312;
+    text-align:center;
+    font-weight: bold;
+    width:100%;
+    visibility:hidden;
+    height:24px;
+}
+
+.ready_to_test.stripe4{
+    visibility:visible;
+}
+
+.progress_fill{
+    position:absolute;
+    font-weight:bold;
+    text-align:center;
+    background-color:#FAD312;
+    height:24px;
+}
+
+#blue{
+    background-color:#3763AA;
+    color: white;
+}
+
+#purple{
+    background-color:#6D4E9A;
+    color: white;
+}
+#brown{
+    background-color:#A66236;
+    color:white;
+}

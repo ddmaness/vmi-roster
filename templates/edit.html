@@ -6,14 +6,12 @@
 
 {% block main %}
 
-    <p>
     {% for cadet in cadets %}
-        <p>
+        <div class="cadet_info">
         {{ cadet.last_name.capitalize() }}</a>  {{ cadet.first_name.capitalize() }}  {{ cadet.attendance_current_rank }} {{ cadet.time }}
-        <a href="/adjust_rank/{{cadet.first_name}},{{cadet.last_name}}"/><button>Adjust Rank</button></a>
-        <a href="/delete/{{cadet.first_name}},{{cadet.last_name}}"/><button>Delete Cadet</button></a>
-        </p>
+        <a href="/adjust_rank/{{cadet.first_name}},{{cadet.last_name}}"/><button class="btn">Adjust rank</button></a>
+        <a href="/delete/{{cadet.first_name}},{{cadet.last_name}}"/><button class="btn">Delete</button></a>
+        </div>
     {% endfor %}
-    </p>
 
 {% endblock %}

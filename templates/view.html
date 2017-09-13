@@ -6,12 +6,10 @@
 
 {% block main %}
 
-    <p>
     {% for cadet in cadets %}
-        <p>
-        {{ cadet.first_name.capitalize() }}  {{ cadet.last_name.capitalize() }} practice sessions as a {{cadet.rank.title()}} rank: {{ cadet.attendance_current_rank }}
-        </p>
+        <div class="cadet_info">
+        {{ cadet.first_name.capitalize() }}  {{ cadet.last_name.capitalize() }} sessions as a {{cadet.rank}} belt: {{ cadet.attendance_current_rank }}
+        </div>
     {% endfor %}
-    </p>
 
 {% endblock %}
