@@ -1,4 +1,5 @@
 body{
+    background-color:#EEEEEE;
     margin:0;
     padding:0;
     font-family: "Roboto", "Noto Sans", sans-serif;
@@ -23,8 +24,26 @@ button{
     background-color:#FAD312;
     color: black; 
     height:40px;
-    min-width:40px;
+    width:104px;
     margin:0 16px 0 8px;
+}
+
+button:active{
+    outline:none;
+    border:none;
+}
+
+button:focus{
+    outline:0;
+}
+
+a:active{
+    outline:none;
+    border:none;
+}
+
+a:focus{
+    outline:0;
 }
 
 select{
@@ -38,6 +57,15 @@ select{
     min-width:80px;
     margin:0 16px 0 8px;
     text-align: center;
+}
+
+select:active{
+    outline:none;
+    border:none;
+}
+
+select:focus{
+    outline:0;
 }
 
 div{  
@@ -129,6 +157,7 @@ a.nav_item, a.log {
 }
 
 .cadet_info.card{
+    background-color:#AF102C; 
     margin-top:16px;
     padding:0;
     padding-bottom:4px;  
@@ -189,13 +218,21 @@ a.nav_item, a.log {
     font-weight:bold;
     border:none;
     border-radius:50%;
+    width:40px;
+    -webkit-transition: box-shadow .2s;
+    transition: box-shadow .2s; 
+}
+
+.checkin:active{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .7), 0 12px 20px 0 rgba(0, 0, 0, .5);
 }
 
 .progress_bar{
+    background-color: #FFFFFF;
     position: relative;
     height: 24px;
     border:solid black;
-    border-width:0 1px 1px 1px;
+    border-width:2 1px 1px 1px;
 }
 
 .ready_to_test{
@@ -221,19 +258,19 @@ a.nav_item, a.log {
     padding-top:4px;
     height:20px;
 }
+#white{
+    background-color:#FFFFFF;
+}
 
 #blue{
-    background-color:#3763AA;
-    color: white;
+    background-color:#3e70c1;
 }
 
 #purple{
-    background-color:#6D4E9A;
-    color: white;
+    background-color:#7755aa;
 }
 #brown{
-    background-color:#A66236;
-    color:white;
+    background-color:#c1723e;
 }
 
 .verify{
