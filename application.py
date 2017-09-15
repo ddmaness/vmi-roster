@@ -142,7 +142,9 @@ def check_in(first, last):
     c.execute("UPDATE cadets SET attendance_current_rank = attendance_current_rank + 1, attendance_total = attendance_total + 1 WHERE first_name=? AND last_name=?", (first, last)) # and time != date('now')", (first, last))
     c.execute("UPDATE cadets SET time = date('now') WHERE first_name=? AND last_name=?", (first, last))
     conn.commit()
-    return redirect("/add")
+    confirm = first.capitalize() + " " + last.capitalize() + " checked in"
+    cadets = c.execute("SELECT * FROM cadets ORDER BY last_name ASC")
+    return render_template("add.html", confirm = confirm, cadets = cadets)
 
 
 

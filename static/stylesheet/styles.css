@@ -24,8 +24,12 @@ button{
     background-color:#FAD312;
     color: black; 
     height:40px;
-    width:104px;
+    min-width: 40px;
     margin:0 16px 0 8px;
+}
+
+button:hover{
+    cursor: pointer;
 }
 
 button:active{
@@ -163,11 +167,19 @@ a.nav_item, a.log {
     padding-bottom:4px;  
 }
 
+#confirm_check_in{
+    text-align: center;
+    margin-top: 24px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    background-color: #FFFFFF;
+    color:#009900;
+}
 .stripes_bar{
     position:absolute;
     top:0;
     right:10%;
-    background-color: black;
+    background-color: #000000;
     height:65px;
     width: 20%;
 }
@@ -175,7 +187,7 @@ a.nav_item, a.log {
 .stripe{    
     position:absolute;
     border:none;
-    background-color: white;
+    background-color: #FFFFFF;
     width:8%;
     height:64px;
     visibility:hidden;
@@ -275,7 +287,10 @@ a.nav_item, a.log {
 
 .verify{
     max-width:1200px;
+    padding-top: 24px;
+    padding-bottom:24px;
     margin:auto;
+    margin-top:24px;
     text-align:center;
 }
 
