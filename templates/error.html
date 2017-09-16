@@ -5,5 +5,8 @@
 {% endblock %}
 
 {% block main %}
-    <div class="verify"><p class="important">{{ msg }}</p></div>
+    <div class="card">
+        <div class="verify"><p class="important">{{ msg }}</p></div>
+        <div style="text-align: center;padding-bottom:32px;"><button onclick="handlers.goBack()">Return</div>
+    </div>
 {% endblock %}

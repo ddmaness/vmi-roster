@@ -8,8 +8,53 @@
         </title>
     </head>
     <body>
-<div class=""></div>
+        {% set navigation_bar_loggedin_left = [
+            ('/', 'index', 'Home'),
+            ('/add', 'add', 'Take attendance'),
+            ('/view/', 'view', 'View roster'),
+            ('/edit/', 'edit', 'Edit roster')
+            ] -%}
+        {% set navigation_bar_loggedin_right = [
+            ('/logout/', 'logout', 'Logout')
+            ] -%}
+        {% set navigation_bar_loggedout_left = [
+            ('/', 'index', 'Home'),
+            ('/view/', 'view', 'View roster'),
+            ] -%}
+        {% set navigation_bar_loggedout_right = [
+            ('/login/', 'login', 'Login')
+            ] -%}
+        {% set active_page = active_page|default('index') -%}
         <div class="position_holder">
+        </div>
+        <div class="navbar">
+            <ul>
+            {% if session.user_id %}
+                {% for href, id, caption in navigation_bar_loggedin_left %}
+                    <li{% if id == active_page %} id = "active"{% endif
+                    %} class="menu_left"><a class="nav_item" href="{{ url_for(id) }}">{{ caption|e }}</a></li>
+                {% endfor %}
+                {% for href, id, caption in navigation_bar_loggedin_right %}
+                    <li{% if id == active_page %} id = "active"{% endif
+                    %} class="menu_right"><a class="nav_item" href="{{ url_for(id) }}">{{ caption|e }}</a></li>
+                {% endfor %}
+
+            {% else %}
+
+                {% for href, id, caption in navigation_bar_loggedout_left %}
+                    <li{% if id == active_page %} id="active"{% endif
+                    %} class="menu_left"><a class="nav_item" href="{{ url_for(id) }}">{{ caption|e }}</a></li>
+                {% endfor %}
+
+                {% for href, id, caption in navigation_bar_loggedout_right %}
+                    <li{% if id == active_page %} id="active"{% endif
+                    %} class="menu_right"><a class="nav_item" href="{{ url_for(id) }}">{{ caption|e }}</a></li>
+                {% endfor %}
+            {% endif %}
+            </ul>
+        </div>
+        
+        <!--<div class="position_holder">
         </div>
         <div class="navbar">
             <ul>
@@ -25,7 +70,7 @@
                 <li class="menu_right far_right"><a class="log" href="{{ url_for('login') }}">Login</a>
                 {% endif %}
             </ul>
-        </div>
+        </div>-->
         <div>
             {% block main %}{% endblock %}    
         </div>
