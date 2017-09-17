@@ -175,6 +175,16 @@ a.nav_item.off_screen{
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .8), 0 4px 6px 0 rgba(0, 0, 0, .6); /*taken from w3 page on shadows */
 }
 
+.name_display_mobile{
+    display:none;
+    font-weight: bold;
+    background-color: #FFFFFF;
+    font-size:24px;
+    padding:8px;
+    text-align:center;
+    margin-top:16px;
+}
+
 .cadet_info.view{
     height:48px;
     padding-left:16px;
@@ -338,8 +348,32 @@ a.nav_item.off_screen{
         transform: translate(0,0);
     }
 
+@media screen and (max-width:900px){
+    .stripes_bar{
+        right: 0;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .important.belt_names{
+        font-size:16px;
+    }
+}
+
+@media screen and (max-width:620px){
+    .stripes_bar{
+        width:10%
+    }
+}
+
 @media screen and (max-width:550px){
-    
+    .position_holder{
+        display:none;
+    }
+    .navbar{
+        position:relative;
+    }
+
     .menu_tray_icon{
         display:inline !important;
     }
@@ -356,5 +390,25 @@ a.nav_item.off_screen{
     .hidden_menu_left{
         width: 300px;
         border-bottom:1px solid black;
+    }
+
+    .name_display_mobile{
+        display: block;
+    }
+
+    .cadet_info{
+        margin-top:0;
+    }
+    .important.important.belt_names{
+        display:none;
+    }
+    .stripes_bar{
+        width: 25%;
+    }
+}
+
+@media screen and (max-width:450px){
+    .name_display_mobile{
+        font-size:16px;
     }
 }

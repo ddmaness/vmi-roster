@@ -9,10 +9,13 @@
 
     {% for cadet in cadets %}
         <div class="card">
+            <div class="name_display_mobile">
+                {{ cadet.last_name.capitalize() }},  {{ cadet.first_name.capitalize() }}
+            </div>
             <div class="cadet_info" id="{{ cadet.rank }}">
-                <a href="/adjust_rank/{{cadet.first_name}},{{cadet.last_name}}"/><button class="adjust_rank">Adjust rank</button></a>
-                <a href="/delete/{{cadet.first_name}},{{cadet.last_name}}"/><button>Delete</button></a>
-                <span class="important">{{ cadet.last_name.capitalize() }},  {{ cadet.first_name.capitalize() }}</span>
+                <a href="/adjust_rank/{{cadet.first_name}},{{cadet.last_name}}"/><button class="adjust_rank belt_button">Adjust rank</button></a>
+                <a href="/delete/{{cadet.first_name}},{{cadet.last_name}}"/><button class="belt_button">Delete</button></a>
+                <span class="important belt_names">{{ cadet.last_name.capitalize() }},  {{ cadet.first_name.capitalize() }}</span>
                 <div class="stripes_bar">
                     <div class="stripe num{% if cadet.attendance_current_rank > 99 %}4{% else %}{{ ((cadet.attendance_current_rank-(cadet.attendance_current_rank%25))/25)|int }}{% endif %} first_stripe">
                     </div>
