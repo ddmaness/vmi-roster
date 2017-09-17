@@ -80,7 +80,7 @@ def add():
         first = request.form.get("first").upper()
         last = request.form.get("last").upper()
         if first == "" or last == "":
-            msg = "please provide your first and last name"
+            msg = "Please provide your first and last name"
             return error(msg)
         else:
             c.execute("SELECT first_name, last_name FROM cadets WHERE first_name=? AND last_name=?", (first, last))
@@ -90,7 +90,7 @@ def add():
                 conn.commit()
                 return redirect("/add")
             else:
-                msg = "this name already exists in the database"
+                msg = "This name has already been added"
                 return error(msg)
     else:
         cadets = c.execute("SELECT * FROM cadets ORDER BY last_name ASC")

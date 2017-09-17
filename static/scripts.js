@@ -46,7 +46,16 @@ var handlers = {
             last[0].placeholder = "LAST NAME REQUIRED";
             return false;
         }
+    },
+    expandMenuTray:function(){
+        var tray = document.querySelector(".off_screen_nav")
+        tray.classList.toggle('open');
+        event.stopPropagation();
+    },
+    closeMenuTray:function(){
+        var tray = document.querySelector(".off_screen_nav")
+        tray.classList.remove('open');
     }
 }
 
-window.onload = view.hideEmptyCard("confirm_check_in")
+window.onload = view.hideEmptyCard("confirm_check_in");

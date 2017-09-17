@@ -1,8 +1,10 @@
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="{{ url_for('static', filename='scripts.js') }}"></script>
         <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet/styles.css') }}" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Playfair+Display+SC|Roboto" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <title>
             VMI: {% block title %}{% endblock %}
         </title>
@@ -11,7 +13,6 @@
         {% set navigation_bar_loggedin_left = [
             ('/', 'index', 'Home'),
             ('/add', 'add', 'Take attendance'),
-            ('/view/', 'view', 'View roster'),
             ('/edit/', 'edit', 'Edit roster')
             ] -%}
         {% set navigation_bar_loggedin_right = [
@@ -25,53 +26,55 @@
             ('/login/', 'login', 'Login')
             ] -%}
         {% set active_page = active_page|default('index') -%}
+        <div class="off_screen_nav">
+             <ul>
+                {% if session.user_id %}
+                    {% for href, id, caption in navigation_bar_loggedin_left %}
+                        <li{% if id == active_page %} id = "active"{% endif
+                        %} class="hidden_menu_left"><a class="nav_item off_screen" href="{{ url_for(id) }}">{{ caption|e }}</a></li>
+                    {% endfor %}
+                    {% else %}
+
+                    {% for href, id, caption in navigation_bar_loggedout_left %}
+                        <li{% if id == active_page %} id="active"{% endif
+                        %} class="hidden_menu_left"><a class="nav_item off_screen" href="{{ url_for(id) }}">{{ caption|e }}</a></li>
+                    {% endfor %}
+                {% endif %}
+                </ul>
+        </div>
         <div class="position_holder">
         </div>
         <div class="navbar">
-            <ul>
+            <i class="menu_tray_icon material-icons" style="color:white; font-size:48px; margin-left:24px;"onclick="handlers.expandMenuTray();">menu</i>
             {% if session.user_id %}
+                <ul>
                 {% for href, id, caption in navigation_bar_loggedin_left %}
                     <li{% if id == active_page %} id = "active"{% endif
                     %} class="menu_left"><a class="nav_item" href="{{ url_for(id) }}">{{ caption|e }}</a></li>
                 {% endfor %}
+                </ul>
+                <ul class="right_side_menu">
                 {% for href, id, caption in navigation_bar_loggedin_right %}
                     <li{% if id == active_page %} id = "active"{% endif
                     %} class="menu_right"><a class="nav_item" href="{{ url_for(id) }}">{{ caption|e }}</a></li>
                 {% endfor %}
-
+                </ul>
             {% else %}
-
+                <ul>
                 {% for href, id, caption in navigation_bar_loggedout_left %}
                     <li{% if id == active_page %} id="active"{% endif
                     %} class="menu_left"><a class="nav_item" href="{{ url_for(id) }}">{{ caption|e }}</a></li>
                 {% endfor %}
-
+                </ul>
+                <ul class="right_side_menu">
                 {% for href, id, caption in navigation_bar_loggedout_right %}
                     <li{% if id == active_page %} id="active"{% endif
                     %} class="menu_right"><a class="nav_item" href="{{ url_for(id) }}">{{ caption|e }}</a></li>
                 {% endfor %}
+                </ul>
             {% endif %}
-            </ul>
         </div>
-        
-        <!--<div class="position_holder">
-        </div>
-        <div class="navbar">
-            <ul>
-                {% if session.user_id %}
-                <li class="menu_left far_left"><a class="nav_item" href="{{ url_for('index') }}">Home</a>
-                <li class="menu_left"><a class="nav_item" href="{{ url_for('add') }}">Take Attendance</a>
-                <li class="menu_left"><a class="nav_item" href="{{ url_for('view') }}"> View Roster </a>
-                <li class="menu_left"><a class="nav_item" href="{{ url_for('edit') }}"> Edit Roster </a>
-                <li class="menu_right far_right"><a class="log" href="{{ url_for('logout') }}"> Logout </a>
-                {% else %}
-                <li class="menu_left far_left"><a class="nav_item" href="{{ url_for('index') }}">Home</a>
-                <li class="menu_left"><a class="nav_item" href="{{ url_for('view') }}"> View Roster </a>
-                <li class="menu_right far_right"><a class="log" href="{{ url_for('login') }}">Login</a>
-                {% endif %}
-            </ul>
-        </div>-->
-        <div>
+        <div onclick="handlers.closeMenuTray();">
             {% block main %}{% endblock %}    
         </div>
     <body>

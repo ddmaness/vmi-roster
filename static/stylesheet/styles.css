@@ -76,6 +76,7 @@ div{
 
 ul {/* taken from w3 schools example on navbars */
     list-style-type: none;
+    display: inline-block;
     margin: 0;
     padding: 0;
 }
@@ -88,6 +89,10 @@ ul {/* taken from w3 schools example on navbars */
 .adjust_rank{
     margin-right:0;
     margin-left:8px;
+}
+
+.menu_tray_icon {
+    display:none !important;
 }
 
 li.menu_left {
@@ -105,6 +110,11 @@ li.menu_right.far_right{
     margin-right: 24px;
 }
 
+.right_side_menu{
+    float:right;
+    margin-right: 16px;
+}
+
 a {
     color:white;
     text-decoration: none;
@@ -116,7 +126,7 @@ a {
     z-index: 1;
     width:100%;
     background-color: #AF102C;
-    height:48px;
+    height:48px; 
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .5), 0 8px 12px 0 rgba(0, 0, 0, .3);
     border-bottom:1px solid black;
 }
@@ -132,15 +142,21 @@ a.nav_item {
     margin: 4px 24px 4px 0;
 }
 
+a.nav_item.off_screen{
+    margin: 0 24px 4px 0;
+}
+
 .vmi{
     font-family: "Playfair Display SC", serif;
     font-size:64px;
     font-weight:bold;
     text-align:center;
-    margin-top:32px;
+    margin-top:16px;
+    margin-bottom:32px;
 }
 
 .club{
+    margin-top:32px;
     font-size: 48px;
     text-align: center;
 }
@@ -303,4 +319,42 @@ a.nav_item {
 .important{
     font-size:24px;
     font-weight: bold;
+}
+
+.off_screen_nav{
+    border-right:1px solid black;
+    z-index: 3;
+    margin-right:0;
+    background-color:#AF102C;
+    width:300px;
+    height:100%;
+    position:absolute;
+    transform: translate(-300px, 0);
+    transition: transform 0.3s ease;       
+    }
+
+.off_screen_nav.open{
+        box-shadow: 200px 0 100px rgba(0, 0, 0, .8); 
+        transform: translate(0,0);
+    }
+
+@media screen and (max-width:550px){
+    
+    .menu_tray_icon{
+        display:inline !important;
+    }
+    
+    .menu_left{
+        display:none;
+    }
+
+    html, body {
+        height: 100%;
+        width: 100%;
+    }
+
+    .hidden_menu_left{
+        width: 300px;
+        border-bottom:1px solid black;
+    }
 }
