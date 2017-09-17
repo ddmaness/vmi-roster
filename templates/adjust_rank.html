@@ -10,27 +10,35 @@
         <p>To promote a cadet to the next color belt, choose the color of the promotion and set their number of stripes to zero.</p>
         <p class="important">{{ first.capitalize() }} {{ last.capitalize() }}</p> 
         <p class="important">{{ stripes }} stripe {{ belt }} belt</p>
-        <select name="stripes" form="set_rank">
-            <option value="{{ stripes }}" selected hidden>{{ stripes }} stripe</option>
-            <option value=0>0 stripe</option>
-            <option value=1>1 stripe</option>
-            <option value=2>2 stripe</option>
-            <option value=3>3 stripe</option>
-            <option value=4>4 stripe</option>
-        </select>
-        <select name="belt" form="set_rank">
-            <option value="{{ belt }}" selected hidden>{{ belt }} belt</option>
-            <option value="white">white belt</option>
-            <option value="blue">blue belt</option>
-            <option value="purple">purple belt</option>
-            <option value="brown">brown belt</option>
-        </select>
-        <form action="url_for('adjust',first=None,last=None)" method="post" id="set_rank" style="display: inline;">
-            <input type="hidden" name=first value="{{ first }}">
-            <input type="hidden" name=last value="{{ last }}">
-            <button type="submit">Confirm changes</button>
-        </form>
-        <a href="/edit"><button>Return to roster</button></a>
+        <div>
+            <select name="stripes" form="set_rank">
+                <option value="{{ stripes }}" selected hidden>{{ stripes }} stripe</option>
+                <option value=0>0 stripe</option>
+                <option value=1>1 stripe</option>
+                <option value=2>2 stripe</option>
+                <option value=3>3 stripe</option>
+                <option value=4>4 stripe</option>
+            </select>
+            <select name="belt" form="set_rank">
+                <option value="{{ belt }}" selected hidden>{{ belt }} belt</option>
+                <option value="white">white belt</option>
+                <option value="blue">blue belt</option>
+                <option value="purple">purple belt</option>
+                <option value="brown">brown belt</option>
+            </select>
+        </div>
+        <div class="adjust_confirm">
+            <div class="adjust_confirm">
+                <form action="url_for('adjust',first=None,last=None)" method="post" id="set_rank" style="display: inline;">
+                    <input type="hidden" name=first value="{{ first }}">
+                    <input type="hidden" name=last value="{{ last }}">
+                    <button class="adjust_btn" type="submit">Confirm changes</button>
+                </form>
+            </div>
+            <div class="adjust_confirm">
+                <a href="/edit"><button class= "adjust_btn">Return to roster</button></a>
+            </div>
+        </div>
     </div>
 
 {% endblock %}

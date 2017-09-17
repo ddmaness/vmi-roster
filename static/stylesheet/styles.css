@@ -91,6 +91,14 @@ ul {/* taken from w3 schools example on navbars */
     margin-left:8px;
 }
 
+.adjust_confirm{
+    margin-top:16px;
+}
+
+.adjust_btn {
+    width: 208px;
+}
+
 .menu_tray_icon {
     display:none !important;
 }
@@ -176,9 +184,11 @@ a.nav_item.off_screen{
 }
 
 .name_display_mobile{
+    border-top:1px solid black;
     display:none;
     font-weight: bold;
-    background-color: #FFFFFF;
+    color: #FFFFFF;
+    background-color: #AF102C;
     font-size:24px;
     padding:8px;
     text-align:center;
@@ -194,8 +204,8 @@ a.nav_item.off_screen{
 .cadet_info.card{
     background-color:#AF102C; 
     margin-top:16px;
-    padding:0;
-    padding-bottom:4px;  
+    padding:8px;
+    height:auto;
 }
 
 #confirm_check_in{
@@ -344,9 +354,13 @@ a.nav_item.off_screen{
     }
 
 .off_screen_nav.open{
-        box-shadow: 200px 0 100px rgba(0, 0, 0, .8); 
+        box-shadow: 200px 0 100px 100px rgba(0, 0, 0, .8); 
         transform: translate(0,0);
     }
+
+.verify.card{
+    background-color: #FFFFFF;
+}
 
 @media screen and (max-width:900px){
     .stripes_bar{
@@ -405,10 +419,16 @@ a.nav_item.off_screen{
     .stripes_bar{
         width: 25%;
     }
+    .add_name{
+        width:95%;
+    }
 }
 
 @media screen and (max-width:450px){
     .name_display_mobile{
         font-size:16px;
+    }
+    .club{
+        font-size:32px;
     }
 }
