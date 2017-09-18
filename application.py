@@ -5,20 +5,22 @@ from functools import wraps
 import psycopg2
 import psycopg2.extras
 import os
-#import urlparse
+from urllib.parse import urlparse
 
-
-conn = psycopg2.connect("dbname=cadet2 user=postgres host=localhost password=postgres")
-c = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+############
+###connects to local postgresql db
+############
+#conn = psycopg2.connect("dbname=cadet2 user=postgres host=localhost password=postgres")
+#c = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
 
 #####################
 ##possible setup for heroku
 #####################
-#urlparse.uses_netloc.append('postgres')
-#url = urlparse.urlparse(os.environ['DATABASE_URL'])
+urlparse.uses_netloc.append('postgres')
+url = urlparse.urlparse(os.environ['DATABASE_URL'])
 
-#conn = psycopg2.connect("dbname=%s user=%s password=%s host=%s " % (url.path[1:], url.username, url.password, url.hostname))
-#c = conn.cursor()
+conn = psycopg2.connect("dbname=%s user=%s password=%s host=%s " % (url.path[1:], url.username, url.password, url.hostname))
+c = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
 
 ################
 ## original sqlite3 setup
