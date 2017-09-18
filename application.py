@@ -5,7 +5,7 @@ from functools import wraps
 import psycopg2
 import psycopg2.extras
 import os
-from urllib.parse import urlparse
+import urllib.parse as urlparse
 
 ############
 ###connects to local postgresql db
@@ -16,7 +16,7 @@ from urllib.parse import urlparse
 #####################
 ##possible setup for heroku
 #####################
-urlparse.uses_netloc.append('postgres')
+##urllib.parse.uses_netloc.append('postgres')
 url = urlparse.urlparse(os.environ['DATABASE_URL'])
 
 conn = psycopg2.connect("dbname=%s user=%s password=%s host=%s " % (url.path[1:], url.username, url.password, url.hostname))
