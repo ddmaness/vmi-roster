@@ -9,10 +9,10 @@
     <div class="verify card">
         <p>To promote a cadet to the next color belt, choose the color of the promotion and set their number of stripes to zero.</p>
         <p class="important">{{ first.capitalize() }} {{ last.capitalize() }}</p> 
-        <p class="important">{{ stripes }} stripe {{ belt }} belt</p>
+        <p class="important">{{ stripes|int }} stripe {{ belt }} belt</p>
         <div>
             <select name="stripes" form="set_rank">
-                <option value="{{ stripes }}" selected hidden>{{ stripes }} stripe</option>
+                <option value="{{ stripes }}" selected hidden>{{ stripes|int }} stripe</option>
                 <option value=0>0 stripe</option>
                 <option value=1>1 stripe</option>
                 <option value=2>2 stripe</option>
