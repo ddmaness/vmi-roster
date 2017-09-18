@@ -13,21 +13,10 @@ import urllib.parse as urlparse
 #conn = psycopg2.connect("dbname=cadet2 user=postgres host=localhost password=postgres")
 #c = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
 
-#####################
-##possible setup for heroku
-#####################
-##urllib.parse.uses_netloc.append('postgres')
 url = urlparse.urlparse(os.environ['DATABASE_URL'])
 
 conn = psycopg2.connect("dbname=%s user=%s password=%s host=%s " % (url.path[1:], url.username, url.password, url.hostname))
 c = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
-
-################
-## original sqlite3 setup
-################
-#conn = sqlite3.connect('cadet.db')
-#conn.row_factory = sqlite3.Row
-#c = conn.cursor()
 
 app = Flask(__name__)
 
