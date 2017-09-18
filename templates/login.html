@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block main %}
-    <div class="verify">
+    <div class="verify card">
         <form action="{{ url_for('login')}}" onsubmit="return handlers.loginValidation('username', 'password')" method="post">
             <input autocomplete="off" name="username" placeholder="Username" type="text">
             <input name="password" placeholder="Password" type="password">
