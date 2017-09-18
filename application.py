@@ -130,7 +130,7 @@ def view():
 
 @app.route("/check_in/<first>,<last>")
 def check_in(first, last):
-    c.execute("UPDATE cadets SET attendance_current_rank = attendance_current_rank + 1, attendance_total = attendance_total + 1 WHERE first_name=%s AND last_name=%s", (first, last)) # and time != date('now')", (first, last))
+    c.execute("UPDATE cadets SET attendance_current_rank = attendance_current_rank + 1, attendance_total = attendance_total + 1 WHERE first_name=%s AND last_name=%s AND time != date('now')", (first, last))
     c.execute("UPDATE cadets SET time = date('now') WHERE first_name=%s AND last_name=%s", (first, last))
     conn.commit()
     confirm = first.capitalize() + " " + last.capitalize() + " checked in"
