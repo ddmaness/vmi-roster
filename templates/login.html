@@ -8,8 +8,8 @@
 {% block main %}
     <div class="verify card">
         <form action="{{ url_for('login')}}" onsubmit="return handlers.loginValidation('username', 'password')" method="post">
-            <input autocomplete="off" name="username" placeholder="Username" type="text" class="text_input">
-            <input name="password" placeholder="Password" type="password" class="text_input">
+            <input autocomplete="off" name="username" placeholder="Username" type="text" class="text_field">
+            <input name="password" placeholder="Password" type="password" class="text_field">
             <button type="submit">Login</button>
         </form>
     </div>
