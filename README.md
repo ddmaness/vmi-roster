@@ -7,7 +7,7 @@ This page was created with two purposes in mind...
 
 In order to prevent abuse of the checkin system, coaches are required to login before allowing cadets to mark their attendance. Visiting the site without logging in still allows visitors to view the roster and current progress towards the next rank but does not allow visitors to modify the roster or check in.
 
-##Potential Future Features##
+## Potential Future Features
 -The ability for coaches to post messages viewable to the cadets
 -The ability to add something that displays recognition for medal wins next to the cadets name
 -The ability for cadets to schedule training meetups
