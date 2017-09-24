@@ -9,6 +9,7 @@
             VMI: {% block title %}{% endblock %}
         </title>
     </head>
+    <!-- allows the nav bar to highlight the currently active page on the nav bar -->
     <body>
         {% set navigation_bar_loggedin_left = [
             ('/', 'index', 'Home'),
@@ -26,6 +27,7 @@
             ('/login/', 'login', 'Login')
             ] -%}
         {% set active_page = active_page|default('index') -%}
+        <!-- nav bar display is based on whether or not the user is logged in -->
         <div class="off_screen_nav">
              <ul>
                 {% if session.user_id %}

@@ -6,6 +6,7 @@
 {% endblock %}
 
 {% block main %}
+    <!-- form accepts input of new cadet to roster -->
     <div class="cadet_info card">
         <form action="{{ url_for('add') }}" onsubmit="return handlers.addCadetValidation('first','last')" method="post" style="margin:0;">
             <input type="text" name="first" placeholder="first name" class="text_field"/>
@@ -15,7 +16,9 @@
     </div>
     <div id="confirm_check_in" class="card"><p>{{ confirm }}</p></div>
     {% for cadet in cadets %}
+        <!-- for every cadet in db display their name, rank, progress bar and a button for them to check in -->
         <div class="card">
+            <!-- displays name off of belt if display is small -->
             <div class="name_display_mobile">
                 {{ cadet.last_name.capitalize() }},  {{ cadet.first_name.capitalize() }}
             </div>

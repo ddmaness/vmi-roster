@@ -9,9 +9,11 @@
 
     {% for cadet in cadets %}
         <div class="card">
+            <!--display cadey name off of belt on small displays-->
             <div class="name_display_mobile">
                 {{ cadet.last_name.capitalize() }},  {{ cadet.first_name.capitalize() }}
             </div>
+             <!-- for every cadet in db display their name, rank, progress bar, delete button, and adjust_rank button -->
             <div class="cadet_info" id="{{ cadet.rank }}">
                 <a href="/adjust_rank/{{cadet.first_name}},{{cadet.last_name}}"/><button class="adjust_rank belt_button">Adjust rank</button></a>
                 <a href="/delete/{{cadet.first_name}},{{cadet.last_name}}"/><button class="belt_button">Delete</button></a>

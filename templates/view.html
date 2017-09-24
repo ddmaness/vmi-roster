@@ -8,6 +8,7 @@
 {% block main %}
 
     {% for cadet in cadets %}
+     <!-- for every cadet in db display their name, rank, progress bar-->
         <div class="card">
             <div class="name_display_mobile">
                 {{ cadet.last_name.capitalize() }},  {{ cadet.first_name.capitalize() }}
