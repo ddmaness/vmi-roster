@@ -211,6 +211,3 @@ def error(msg):
     #render error message page based on the variable passed to 'msg'
     return render_template("error.html", msg = msg)
 
-
-
-app.secret_key = "q3n$)1hsgg8@8vhwa75up9g0qdpa3f$wc1ynh$pf(aqxk^h^6s"
